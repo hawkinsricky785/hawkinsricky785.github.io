@@ -1,0 +1,1211 @@
+﻿<!---https://azouaoui-med.github.io/pro-sidebar-template/#-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="Responsive layout with advanced sidebar menu built with SCSS and vanilla Javascript" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="all.css">
+    <style>
+        button {
+            width: 180px;
+            height: 70px;
+            vertical-align: middle;
+        }
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
+    <title>Portfolio Newsfeed</title>
+</head>
+<body>
+    <div class="layout has-sidebar fixed-sidebar fixed-header">
+        <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+            <div class="image-wrapper">
+
+            </div>
+            <div class="sidebar-layout">
+                <div class="sidebar-header">
+                    <span style="
+                text-transform: uppercase;
+                font-size: 15px;
+                letter-spacing: 3px;
+                font-weight: bold;
+              ">A.I. Capital</span>
+                </div>
+                <div class="sidebar-content">
+                    <nav class="menu open-current-submenu">
+                        <ul>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F3C6
+                                    </span>
+                                    <span class="menu-title">Team Pulse</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="teamfeed.html">
+                                                <span class="menu-title">Activity Newsfeed</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="calendar.html">
+                                                <span class="menu-title">Activity by Company</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#xFF04
+                                    </span>
+                                    <span class="menu-title">Portfolio</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="newsfeed.html">
+                                                <span class="menu-title">Portfolio Newsfeed</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="smarttasks.html">
+                                                <span class="menu-title">Smart Tasks</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F91D
+                                    </span>
+                                    <span class="menu-title">Relationships</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="notesearch.html">
+                                                <span class="menu-title">Experts by Topic</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="smartnetwork.html">
+                                                <span class="menu-title">Smart Network</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </aside>
+        <div id="overlay" class="overlay"></div>
+        <div class="layout">
+            <header class="header">
+                <a id="btn-collapse" href="#">
+                    &#x2261
+                </a>
+                <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
+                    &#x2261
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Portfolio Newsfeed
+            </header>
+            <main class="content">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <table style="width:99%" valign="top">
+                                <!--start of Kajabi news-->
+                                <tr>
+                                    <td>
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="padding-bottom:4px;"><span style="vertical-align:middle"><img src="https://www.theinformation.com/assets/favicon_prod%2Ffavicon-32x32.png" height="16px" width="16px" /></span>&nbsp;&nbsp;&nbsp;<span style="color:darkgrey;border:1px solid darkgrey;padding:4px;font-size:11px;vertical-align:middle">NEWS (Portfolio)</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://www.theinformation.com/articles/online-course-provider-kajabi-hires-execs-from-shopify-tiktok?utm_medium=page&utm_source=twitter" target="_blank">Online Course Provider Kajabi Hires Execs From Shopify, TikTok</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size:12px;">3/31/22---<a href="https://www.crunchbase.com/organization/kajabi"><b>Kajabi</b></a> is a portfolio company.</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-bottom:4px;"><span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=CRM">CRM</a></span>&nbsp;&nbsp;<span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=E-Commerce">E-Commerce</a></span>&nbsp;&nbsp;<span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=EdTech">EdTech</a></span>&nbsp;&nbsp;<span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=Lead Generation">Lead Generation</a></span>&nbsp;&nbsp;<span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=Marketing">Marketing</a></span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="float:right">
+                                        <table style="float:right">
+                                            <tr>
+                                                <td>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <button id="Kajabi" style="background-color:powderblue;border:1px solid black" onclick="url_redirect('https://www.crunchbase.com/organization/kajabi')">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/v1437417575/p1r8qhwycd4sxfxswr2h.png" />
+                                                                            </td>
+                                                                            <td style="font-size:11px;">
+                                                                                <table>
+                                                                                    <tr">
+                                                                                        <td>Kajabi</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>$2b val (PE)</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Irvine, CA</td>
+                                                                        </tr>
+                                                                    </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    </button>
+                                                    <button id="David_Lennie" onclick="button_click(this.id)">
+                                                        <table>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <img style="height:50px;width:50px" src="https://media-exp1.licdn.com/dms/image/C4D03AQHPZd2Rp_m9DQ/profile-displayphoto-shrink_400_400/0/1516258771725?e=1654732800&v=beta&t=mK1whAK1XQKAZxOWlAqY4t60rhtsmDCW3z-CLyO1LSs" />
+                                                                </td>
+                                                                <td style="font-size:11px;text-align:center">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>David Lennie</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Shopify</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>SVP, Data Science</td>
+                                                                        </tr>
+                                                                    </table>
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button id="Sean_Kim" onclick="button_click(this.id)">
+                                                        <table>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <img style="height:50px;width:50px" src="https://media-exp1.licdn.com/dms/image/C5603AQFOcXx5yFWbOA/profile-displayphoto-shrink_400_400/0/1615562397288?e=1654732800&v=beta&t=p0ebdrz-87pa44JPiawMo7dkIwk3b2S2TJgRufmOozU" />
+                                                                </td>
+                                                                <td style="font-size:11px;text-align:center">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>Sean Kim</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Kajabi</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>President & CPO</td>
+                                                                        </tr>
+                                                                    </table>
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button id="Disco" style="background-color:powderblue;border:1px solid black" onclick="url_redirect('https://www.crunchbase.com/organization/disco-921a')">
+                                                        <table>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <img style="height:50px;width:50px" src="https://assets.website-files.com/60ffdd9e3c66d7e7307eb9e5/60ffdd9e3c66d7c3a67eba62_disco-favicon%20(32%20x%2032).png" />
+                                                                </td>
+                                                                <td style="font-size:11px;text-align:center">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>Disco</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>$20m raise (Ser A)</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Toronto, Ontario</td>
+                                                                        </tr>
+                                                                    </table>
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button id="Maven" style="background-color:powderblue;border:1px solid black" onclick="url_redirect('https://www.crunchbase.com/organization/didactic-8ea9')">
+                                                        <table>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>
+                                                                    <img style="height:50px;width:50px" src="https://media-exp1.licdn.com/dms/image/C4E0BAQFwL6J9-QKEhA/company-logo_200_200/0/1631586556843?e=2147483647&v=beta&t=fCXKnjMxfw2AJIsz_seWkvRI43503N31VvPEateo8Xk" />
+                                                                </td>
+                                                                <td style="font-size:11px;text-align:center">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td>Maven</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>$100m val (Ser A)</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Austin, TX</td>
+                                                                        </tr>
+                                                                    </table>
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width:99%" valign="top">
+                            <!--start of UXCam news-->
+                            <tr>
+                                <td>
+                                    <table width="100%">
+                                        <tr>
+                                            <td style="padding-bottom:4px;"><span style="vertical-align:middle"><img src="businessofapps.png" height="16px" width="16px" /></span>&nbsp;&nbsp;&nbsp;<span style="color:darkgrey;border:1px solid darkgrey;padding:4px;font-size:11px;vertical-align:middle">NETWORK (Portfolio Executive)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="https://www.businessofapps.com/news/uxcam-raises-5-million-to-boosts-contextual-app-analytics/" target="_blank">UXCam raises $5 million to boost contextual app analytics</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size:12px;">3/31/22---<a href="https://www.crunchbase.com/person/chris-schagen"><b>Chris Schangen</b></a> (CMO (former), <a href="https://www.crunchbase.com/organization/contentful"><b>Contentful</b></a>) participated in the round.</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-bottom:4px;"><span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=Analytics">Analytics</a></span>&nbsp;&nbsp;<span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=Big Data">Big Data</a></span>&nbsp;&nbsp;<span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=Mobile">Mobile</a></span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="float:right">
+                                    <table style="float:right">
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <button id="UXCam" style="background-color:powderblue;border:1px solid black" onclick="url_redirect('https://www.crunchbase.com/organization/uxcam')">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/nerebqhouhf1ccfahw0q" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>UXCam</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>$15m val (Seed)</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>San Francisco, CA</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                            <button id="Chris_Schangen" onclick="button_click(this.id)">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/v1422372889/hh3dk5s9vu0o1wbtbmaj.jpg" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Chris Schangen</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Contentful</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>CMO (former)</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <button id="Jonathan_Becker" onclick="button_click(this.id)">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/v1438328559/h1g8jaezoaai79udozd1.jpg" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Jonathan Becker</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Headline</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Lead Investor</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <button id="Kishan_Gupta" onclick="button_click(this.id)">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://media-exp1.licdn.com/dms/image/C4E03AQGWoVgi5m47AA/profile-displayphoto-shrink_400_400/0/1614397767045?e=1654732800&v=beta&t=dS782yJePnTrngw8tM_lXHJzy0NhjY22WQJoV1hniqM" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Kishan Gupta</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>UXCam</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>CEO & Founder</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <button id="Richard_Groves" onclick="button_click(this.id)">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/v1411106900/zlvrz3ekdsjo2lofxilp.jpg" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Richard Groves</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>UXCam</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Founder & COO</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width:99%" valign="top">
+                            <!--start of Reprise news-->
+                            <tr>
+                                <td>
+                                    <table width="100%">
+                                        <tr>
+                                            <td style="padding-bottom:4px;"><span style="vertical-align:middle"><img src="https://www.prnewswire.com/content/dam/prnewswire/icons/2019-Q4-PRN-Icon-32-32.png" height="16px" width="16px" /></span>&nbsp;&nbsp;&nbsp;<span style="color:darkgrey;border:1px solid darkgrey;padding:4px;font-size:11px;vertical-align:middle">NETWORK (Advisor)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="https://www.prnewswire.com/news-releases/reprise-announces-addition-of-live-demo-product-to-sales-suite-301446800.html" target="_blank">Reprise Annouces Addition of Live Demo Product to Sales Suite</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size:12px;">12/16/21---<a href="https://www.crunchbase.com/person/nick-mehta"><b>Nick Mehta</b></a> (CEO, <a href="https://www.crunchbase.com/organization/gainsight"><b>Gainsight</b></a>) invested in the Series B on 11/9/21 at a $390 pre-money valuation.</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-bottom:4px;"><span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=Enterprise Software">Enterprise Software</a></span>&nbsp;&nbsp;<span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=Information Technology">Information Technology</a></span>&nbsp;&nbsp;<span style="color:darkblue;border:1px solid darkblue;padding:4px;font-size:11px"><a href="notesearch.html?topic=Software">Software</a></span></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="float:right">
+                                    <table style="float:right">
+                                        <tr>
+                                            <td>
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <button id="Reprise" style="background-color:powderblue;border:1px solid black" onclick="url_redirect('https://www.crunchbase.com/organization/reprise')">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/cwj2wslsdybibhar31kc" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Reprise</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>$390m val (Ser B)</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Boston, MA</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                            <button id="Nick_Mehta" onclick="button_click(this.id)">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/jzrjuxawht0rxowteeqj" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Nick Mehta</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Gainsight</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>CEO</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <button id="Samuel_Clemens" onclick="button_click(this.id)">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/qruwzzy6dpib45mjkaed" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Samuel Clemens</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Reprise</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Co-founder & CEO</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <button id="Rudina_Seseri" onclick="button_click(this.id)">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://media-exp1.licdn.com/dms/image/C4E03AQFe62oksb_5MA/profile-displayphoto-shrink_400_400/0/1575981889494?e=2147483647&v=beta&t=Kg65fDKdbRtdlQohqnwzKZyQAHI2xW2o7im6i6-IrL8" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Rudina Seseri</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Glasswing VC</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Managing Partner</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                            <button id="Richard_Groves" onclick="button_click(this.id)">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>
+                                                                            <img style="height:50px;width:50px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/v1411106900/zlvrz3ekdsjo2lofxilp.jpg" />
+                                                                        </td>
+                                                                        <td style="font-size:11px;text-align:center">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Richard Groves</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>UXCam</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Founder & COO</td>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </button>
+                                                        </td>
+                                                        <td>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </table>
+            </main>
+            <div class="overlay"></div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal_text">Some text in the Modal..</p>
+        </div>
+    </div>
+    <div id="Chris_Schangen_div" style="display:none;">
+        <table style="width:100%;margin-top:-40px">
+            <tr>
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <img style="height:90px;width:90px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/v1422372889/hh3dk5s9vu0o1wbtbmaj.jpg" />
+                            </td>
+                            <td></td>
+                            <td style="font-size:18px;text-align:left">
+                                <table>
+                                    <tr>
+                                        <td style="font-weight:bold">Chris Schangen</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contentful</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CMO (former)</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Points</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width:100%">
+                        <tr>
+                            <td colspan="2">
+                                &#x1f4a1; Chris formerly worked for <i>Portfolio</i> company <a target="_blank" href="https://www.crunchbase.com/organization/contentful"><b>Contentful</b></a> as CMO.
+                                <br />
+                                &#x1f4a1; Chris invested in <i>Focus List</i> company <a target="_blank" href="https://www.crunchbase.com/organization/quix-ai"><b>Quix.ai</b></a>'s seed round on 5/12/21.
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Messaging</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;width:1%">To: </td>
+                <td><input type="text" style="width:100%" value="chris@gmail.com" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea style="resize:none" cols="196" rows="15">
+Hi Chris,
+
+I saw you mentioned in this article from Business of Apps: https://www.businessofapps.com/news/uxcam-raises-5-million-to-boosts-contextual-app-analytics/.
+
+I'd be interested in hearing more about UXCam.
+
+I also saw you invested in Quix.ai, it's a company I've been tracking and I'd love to trade notes.
+
+It would be great to catchup sometime if you are available.
+
+Best regards,
+Phil
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" style="width:100%;height:26px"> Send </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="Kishan_Gupta_div" style="display:none;">
+        <table style="width:100%;margin-top:-40px">
+            <tr>
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <img style="height:90px;width:90px" src="https://media-exp1.licdn.com/dms/image/C4E03AQGWoVgi5m47AA/profile-displayphoto-shrink_400_400/0/1614397767045?e=1654732800&v=beta&t=dS782yJePnTrngw8tM_lXHJzy0NhjY22WQJoV1hniqM" />
+                            </td>
+                            <td></td>
+                            <td style="font-size:18px;text-align:left">
+                                <table>
+                                    <tr>
+                                        <td style="font-weight:bold">Kishan Gupta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UXCam</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CEO & Founder</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Points</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width:100%">
+                        <tr>
+                            <td colspan="2">
+                                &#x1f4a1; You met with Kishan on 3/7/21.
+                                <br />
+                                &#x1f4a1; Chris Schangen (Contentful, CMO (former)) invested in UXCam's seed round on 3/28/22.
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Messaging</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;width:1%">To: </td>
+                <td><input type="text" style="width:100%" value="kishan@uxcam.com" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea style="resize:none" cols="196" rows="15">
+Hi Kishan,
+
+I saw you mentioned in this article from Business of Apps: https://www.businessofapps.com/news/uxcam-raises-5-million-to-boosts-contextual-app-analytics/.
+
+I am excited to hear more about what's been going on at UXCam since we last talked.
+
+It was great seeing you in March of last year, it would be great to catchup sometime if you are available.
+
+Best regards,
+Phil
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" style="width:100%;height:26px"> Send </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="Richard_Groves_div" style="display:none;">
+        <table style="width:100%;margin-top:-40px">
+            <tr>
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <img style="height:90px;width:90px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/v1411106900/zlvrz3ekdsjo2lofxilp.jpg" />
+                            </td>
+                            <td></td>
+                            <td style="font-size:18px;text-align:left">
+                                <table>
+                                    <tr>
+                                        <td style="font-weight:bold">Richard Groves</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UXCam</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Founder & COO</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Points</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width:100%">
+                        <tr>
+                            <td colspan="2">
+                                &#x1f4a1; You met with Richard on 3/7/21.
+                                <br />
+                                &#x1f4a1; Chris Schangen (Contentful, CMO (former)) invested in UXCam's seed round on 3/28/22.
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Messaging</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;width:1%">To: </td>
+                <td><input type="text" style="width:100%" value="david@shopify.com" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea style="resize:none" cols="196" rows="15">
+Hi Richard,
+
+I saw you mentioned in this article from Business of Apps: https://www.businessofapps.com/news/uxcam-raises-5-million-to-boosts-contextual-app-analytics/.
+
+I am excited to hear more about what's been going on at UXCam since we last talked.
+
+It was great seeing you in March of last year, it would be great to catchup sometime if you are available.
+
+Best regards,
+Phil
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" style="width:100%;height:26px"> Send </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="Jonathan_Becker_div" style="display:none;">
+        <table style="width:100%;margin-top:-40px">
+            <tr>
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <img style="height:90px;width:90px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/v1438328559/h1g8jaezoaai79udozd1.jpg" />
+                            </td>
+                            <td></td>
+                            <td style="font-size:18px;text-align:left">
+                                <table>
+                                    <tr>
+                                        <td style="font-weight:bold">Jonathan Becker</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Headline</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Partner</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Points</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width:100%">
+                        <tr>
+                            <td colspan="2">
+                                &#x1f4a1; Jonathan was the lead on Headline's seed round investment on 3/28/22, which Chris Schangen (Contentful, CMO (former)) also participated in.
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Messaging</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;width:1%">To: </td>
+                <td><input type="text" style="width:100%" value="jonathan@headline.com" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea style="resize:none" cols="196" rows="15">
+Hi Jonathan,
+
+I saw you mentioned in this article from Business of Apps: https://www.businessofapps.com/news/uxcam-raises-5-million-to-boosts-contextual-app-analytics/.
+
+I'm excited about UXCam and would love to trade notes.
+
+Chris Schangen is a former portfolio company executive that also invested in the seed round with you in March.
+
+It would be great to chat sometime if you are available.
+
+Best regards,
+Phil
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" style="width:100%;height:26px"> Send </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="David_Lennie_div" style="display:none;">
+        <table style="width:100%;margin-top:-40px">
+            <tr>
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <img style="height:90px;width:90px" src="https://media-exp1.licdn.com/dms/image/C4D03AQHPZd2Rp_m9DQ/profile-displayphoto-shrink_400_400/0/1516258771725?e=1654732800&v=beta&t=mK1whAK1XQKAZxOWlAqY4t60rhtsmDCW3z-CLyO1LSs" />
+                            </td>
+                            <td></td>
+                            <td style="font-size:18px;text-align:left">
+                                <table>
+                                    <tr>
+                                        <td style="font-weight:bold">David Lennie</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shopify</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SVP, Data Science</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Points</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width:100%">
+                        <tr>
+                            <td colspan="2">
+                                &#x1f4a1; Blake Brown met with David on 2/11/22.
+                                <br />
+                                &#x1f4a1; David invested in <a target="_blank" href="https://www.crunchbase.com/organization/lodr"><b>LODR</b></a>'s Early Stage VC round with <a target="_blank" href="https://www.crunchbase.com/person/tom-egan"><b>Tom Egan</b></a> (Connection) on 6/1/16.
+                                <br />
+                                &#x1f4a1; John Doe (Affiliate) worked with David at Shopify.
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Messaging</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;width:1%">To: </td>
+                <td><input type="text" style="width:100%" value="david@shopify.com" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea style="resize:none" cols="196" rows="15">
+Hi David,
+
+I saw you mentioned in this article from The Information: https://www.theinformation.com/articles/online-course-provider-kajabi-hires-execs-from-shopify-tiktok?utm_medium=page&utm_source=twitter&rc=dzrihm.  
+
+Congratulations on your new role!  
+
+I am connected to Tom Egan, who you might know through LODR.
+
+I know you caught up with Blake in February, it would be great to catchup sometime if you are available.
+
+Best regards,
+Phil
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" style="width:100%;height:26px"> Send </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="Sean_Kim_div" style="display:none;">
+        <table style="width:100%;margin-top:-40px">
+            <tr>
+                <td colspan="2">
+                    <table>
+                        <tr>
+
+                            <td>
+                                <img style="height:90px;width:90px" src="https://media-exp1.licdn.com/dms/image/C5603AQFOcXx5yFWbOA/profile-displayphoto-shrink_400_400/0/1615562397288?e=1654732800&v=beta&t=p0ebdrz-87pa44JPiawMo7dkIwk3b2S2TJgRufmOozU" />
+                            </td>
+                            <td></td>
+                            <td style="font-size:18px;text-align:left">
+                                <table>
+                                    <tr>
+                                        <td style="font-weight:bold">Sean Kim</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kajabi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>President & CPO</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Points</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table style="width:100%">
+                        <tr>
+                            <td colspan="2">
+                                &#x1f4a1; Blake Brown met with Sean on 11/20/21.
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr><td></td></tr>
+            <tr>
+                <td colspan="2" style="font-weight:bold">AI Smart Messaging</td>
+            </tr>
+            <tr>
+                <td style="font-weight:bold;width:1%">To: </td>
+                <td><input type="text" style="width:100%" value="skim@kajabi.com" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <textarea style="resize:none" cols="196" rows="15">
+Hi Sean,
+
+I saw you mentioned in this article from The Information: https://www.theinformation.com/articles/online-course-provider-kajabi-hires-execs-from-shopify-tiktok?utm_medium=page&utm_source=twitter&rc=dzrihm.  
+
+Congratulations on your new role!  
+
+I know you caught up with Blake last year, it would be great to catchup sometime if you are available.
+
+Best regards,
+Phil
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" style="width:100%;height:26px"> Send </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="tinymce/js/tinymce/tinymce.min.js"></script>
+
+
+<script>
+    function button_click(clicked_id) {
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById(clicked_id);
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        var modal_text = document.getElementById(clicked_id + "_div").innerHTML;
+        document.getElementById("modal_text").innerHTML = modal_text;
+
+        // When the user clicks on the button, open the modal
+        modal.style.display = "block";
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+</script>
+<script>
+    function url_redirect(url_target) {
+        window.open(url_target, '_blank');
+    }
+</script>
+</html>

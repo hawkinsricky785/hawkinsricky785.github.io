@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="Responsive layout with advanced sidebar menu built with SCSS and vanilla Javascript" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="all.css">
+    <style>
+        button {
+            text-align: left;
+            padding: 10px;
+            /*background-color: transparent;*/
+            border:1px solid grey;
+        }
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
+    <title>Activity Newsfeed</title>
+</head>
+<body>
+    <div class="layout has-sidebar fixed-sidebar fixed-header">
+        <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+            <div class="image-wrapper">
+
+            </div>
+            <div class="sidebar-layout">
+                <div class="sidebar-header">
+                    <span style="
+                text-transform: uppercase;
+                font-size: 15px;
+                letter-spacing: 3px;
+                font-weight: bold;
+              ">A.I. Capital</span>
+                </div>
+                <div class="sidebar-content">
+                    <nav class="menu open-current-submenu">
+                        <ul>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F3C6
+                                    </span>
+                                    <span class="menu-title">Team Pulse</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="teamfeed.html">
+                                                <span class="menu-title">Activity Newsfeed</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="calendar.html">
+                                                <span class="menu-title">Activity by Company</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#xFF04
+                                    </span>
+                                    <span class="menu-title">Portfolio</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="newsfeed.html">
+                                                <span class="menu-title">Portfolio Newsfeed</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="smarttasks.html">
+                                                <span class="menu-title">Smart Tasks</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F91D
+                                    </span>
+                                    <span class="menu-title">Relationships</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="notesearch.html">
+                                                <span class="menu-title">Experts by Topic</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="smartnetwork.html">
+                                                <span class="menu-title">Smart Network</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </aside>
+        <div id="overlay" class="overlay"></div>
+        <div class="layout">
+            <header class="header">
+                <a id="btn-collapse" href="#">
+                    &#x2261
+                </a>
+                <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
+                    &#x2261
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <table style="width:100%">
+                    <tr>
+                        <td>Activity Newsfeed</td>
+                        <td>
+                            <span style="float:right;vertical-align:middle;font-weight:bold"><a href="note.html"><span style="color:darkgrey;border:1px solid darkgrey;padding:10px;font-size:14px;vertical-align:middle;"><img height="20px" width="20px" src="https://th.bing.com/th/id/OIP.PIpgWO7T9PVQb59WURqUrgHaHa?pid=ImgDet&w=512&h=512&rs=1" />  Add New Note</span></a></span>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <main class="content">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <button style="width:100%" id="Amplience" onclick="button_click(this.id)">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <table width="100%">
+                                                <tr>
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td style="width:1%;vertical-align:middle"><img height="60px" width="60px" src="https://global-uploads.webflow.com/60d0d9fab79d9e39f81ea787/611224c87a86e061b272f191_blake.jpg" /></td>
+                                                            <td style="float:left;vertical-align:middle"><span style="font-weight: bold; font-size: 17px">Blake Brown</span><br />6 hours ago via Evernote</td>
+                                                            <td>
+                                                                <table style="float:right">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="https://www.crunchbase.com/organization/amplience" target="_blank">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td><img height="34px" width="34px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/yorf3eps4tlaazqts4sq" /></td>
+                                                                                        <td style="font-size:14px;font-weight:bold;">Amplience</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="https://www.crunchbase.com/person/james-brooke" target="_blank">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td><img height="34px" width="34px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/ffygd5yw0gtsrip8hncv" /></td>
+                                                                                        <td style="font-size:14px;font-weight:bold;">James Brooke</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="https://www.crunchbase.com/organization/contentful" target="_blank">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td><img height="34px" width="34px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/cttnlp3rj6zwloryd39d" /></td>
+                                                                                        <td style="font-size:14px;font-weight:bold;">Contentful</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight:bold;font-size:16px">Meeting with James Brooke from Amplience</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size:13px;">
+                                                        <b>AI Generated Summary:</b><br />
+                                                        Amplience makes a next-gen commerce experience platform for business-to-consumer (B2C) and business-to-business (B2B) clients, announced yesterday that it has raised $100 million in series D funding.
+                                                        <br /><br />
+                                                        The platform architecture emanates from the cooperative MACH Alliance, which presents and advocates for an open and best-of-breed enterprise technology ecosystem.
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button style="width:100%" id="Ramp" onclick="button_click(this.id)">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <table width="100%">
+                                                <tr>
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td style="width:1%;vertical-align:middle"><img height="60px" width="60px" src="https://global-uploads.webflow.com/60d0d9fab79d9e39f81ea787/6103fbe480003c5f78d099b5_phil.jpg" /></td>
+                                                            <td style="float:left;vertical-align:middle"><span style="font-weight: bold; font-size: 17px">Phil James</span><br />Yesterday at 10:34 PM via Notion</td>
+                                                            <td>
+                                                                <table style="float:right">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="https://www.crunchbase.com/organization/amplience" target="_blank">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td><img height="34px" width="34px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/sshwc4pe2wfsfsm102id" /></td>
+                                                                                        <td style="font-size:14px;font-weight:bold;">Ramp</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="https://www.crunchbase.com/person/karim-atiyeh" target="_blank">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td><img height="34px" width="34px" src="https://res.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_170,w_170,f_auto,g_faces,z_0.7,b_white,q_auto:eco,dpr_1/oi7dixxgx46uwengc75g" /></td>
+                                                                                        <td style="font-size:14px;font-weight:bold;">Karim Atiyeh</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </a>
+                                                                        </td>
+                                                                       
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight:bold;font-size:16px">Call with Karim Atiyeh on Ramp funding round</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size:13px;">
+                                                        <b>AI Generated Summary:</b><br />
+                                                        Ramp raised $300 million at a $3.9 billion valuation last August.
+                                                        <br /><br />
+                                                        Corporate management startup Ramp confirmed that it has secured $550 million in debt and $200 million in equity in a new financing that doubles its valuation to $8.1 billion.
+                                                        <br /><br />
+                                                        Notably, Founders Fund led the latest equity financing, marking the firm’s fourth time leading a round for Ramp.
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </main>
+            <div class="overlay"></div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal_text">Some text in the Modal..</p>
+        </div>
+    </div>
+    <div id="Amplience_div" style="display:none;">
+        <b>Meeting with James Brooke from Amplience</b>
+        <br /><br />
+        <b>Company:</b> Amplience, Adobe Systems, Contentstack, Bloomreach, Contentful, Progress SiteInfinity, Crate & Barrel, Traeger Grills, Ulta Beauty, Coach, GAP, Currys, Argos, Very Group
+        <br /><br />
+        <b>People:</b> James Brooke (Amplience)
+        <br /><br />
+        <b>Full Meeting Notes:</b>
+        <br /><br />
+        Amplience, which makes a next-gen commerce experience platform for business-to-consumer (B2C) and business-to-business (B2B) clients, announced yesterday that it has raised $100 million in series D funding.
+        <br /><br />
+        Amplience’s cloud-based platform is developer-powered, business-enabled and built on a MACH architecture that delivers a force multiplier in terms of speed, agility and scalability for creating digital experiences, the company said.
+        <br /><br />
+        The platform architecture emanates from the cooperative MACH Alliance, which presents and advocates for an open and best-of-breed enterprise technology ecosystem. The ecosystem technology is microservices-based, API-first, cloud-native software-as-a-service (SaaS) and headless, thus the MACH acronym. It uses individual pieces of business functionality that are independently developed, deployed and managed. Much of the componentry is open source.
+        <br /><br />
+        “There is a growing performance chasm between digital leaders who have invested heavily to build their own customer-centric commerce experience infrastructure, and companies still relying on legacy content management and ecommerce systems,” Amplience founder and CEO James Brooke said in a media advisory. “Amplience helps its customers to bridge this gap and accelerate their implementation of a modern commerce experience, through using best-of-breed MACH and composable capabilities without sacrificing either business usability or developer productivity.”
+        <br /><br />
+        As an executive member of the MACH Alliance, Brooke said, the company is “passionate about supporting our customers to make the transition to a Microservices-based, API-first, cloud-native and headless (MACH) commerce experience architecture. To that end, we are doubling-down on product investment, and in scaling our global go-to-market, customer success and expert services teams.”
+        <br /><br />
+        Amplience, founded in 2008, competes in the ecommerce platform market against Adobe Systems, Contentstack, Bloomreach, Contentful and Progress SiteInfinity, according to Gartner Peer Insights. The platform received a four-out-of-five-star rating from professionals who reviewed it.
+        <br /><br />
+        Digital experience is a key to success with customers
+        <br /><br />
+        “When it comes to digital experience, there is a direct correlation between employee satisfaction and great customer outcomes,” said Marci Maddox, research director for IDC’s Digital Experience Management Software program. “Our research tells us that 85% of organizations believe that empowering employees leads to greater customer satisfaction; however, only 40% of surveyed companies have taken action. It is essential that organizations who aspire to be digital leaders adopt technology and tools that empower developers and business users. It is the route to revolutionizing customer experiences and boosting brand loyalty.”
+        <br /><br />
+        Brooke said that more than 400 of the world’s leading brands use Amplience, including Crate & Barrel, Traeger Grills, Ulta Beauty, Coach, GAP, Currys, Argos and Very Group. Amplience has 200 global employees and has raised a total of $180 million from investors.Amplience received its recent series D funding with an equity investment from Farview Equity Partners, a European growth equity investor, and growth financing from Sixth Street, a global investment firm. Existing investor Octopus Ventures also contributed.
+    </div>
+    <div id="Ramp_div" style="display:none;">
+        <b>Call with Karim Atiyeh on Ramp funding round</b>
+        <br /><br />
+        <b>Company:</b> Ramp
+        <br /><br />
+        <b>People:</b> Karim Atiyeh (Ramp)
+        <br /><br />
+        <b>Full Meeting Notes:</b>
+        <br /><br />
+        Corporate management startup Ramp confirmed that it has secured $550 million in debt and $200 million in equity in a new financing that doubles its valuation to $8.1 billion.
+        <br /><br />
+        In early February, The Information reported on the then-unconfirmed raise and new valuation.
+        <br /><br />
+        The approaching decacorn valuation is quite remarkable, given that less than one year ago Ramp had just reached unicorn status with a $115 million round. It then raised $300 million at a $3.9 billion valuation last August.
+        <br /><br />
+        Notably, Founders Fund led the latest equity financing, marking the firm’s fourth time leading a round for Ramp. It’s not unusual for a firm to participate in multiple rounds for a startup, but it is far less common to see one firm lead four equity financings for a company in such a short amount of time. New York-based Ramp was founded in 2019 and came out of stealth in February 2020 with a corporate card offering.
+        <br /><br />
+        For his part, Founders Fund’s Keith Rabois told TechCrunch he’s in the business of funding “exceptional founders as early as possible.”
+        <br /><br />
+        “Ramp is an example where we invested early then continued to double down as we saw the rapid velocity of execution and unprecedented customer adoption,” he said.
+        <br /><br />
+        Indeed, the new raise follows a year of impressive growth revenue-wise. While CEO and co-founder Eric Glyman declined to reveal hard revenue figures, he noted that Ramp saw “close to a 10x” bump in revenue year-over-year in 2021.
+        <br /><br />
+        All major existing backers — such as Stripe, D1 Capital Partners, Iconiq Capital, Thrive Capital, Redpoint Ventures, Coatue Management, Iconiq, Altimeter, Stripe, Lux Capital, Vista Public Strategies, Spark Capital and Definition Capital — also participated in the latest equity financing, which brings Ramp’s total raised to $1.37 billion.
+        <br /><br />
+        “What made this special for us is that major existing investors really drove the raise and just saw the progress and wanted to double down to make sure we are well set up to be leaning in and continuing to innovate and push,” Glyman told me in an interview.
+        <br /><br />
+        New investors General Catalyst, Avenir Growth Capital, 137 Ventures and Declaration Partners joined in backing the startup in its latest round. Meanwhile, Citibank provided the company with $300 million in debt while Goldman Sachs ponied up another $150 million.
+        <br /><br />
+        Expansion over time
+        <br /><br />
+        Much has changed since Ramp’s February 2020 launch. While the company started out focused on small-to-medium-sized businesses (SMBs), it now works with “businesses of all sizes” — from startups to multibillion-dollar enterprises to potato farmers. Today, more than 5,000 businesses use Ramp, powering over $5 billion in annualized payments volume. Notably, its customer base is up 7x and cardholder growth is up 15x year-over-year. Some of its larger customers spend “in excess of $10 million a month” with Ramp, Glyman said.
+        <br /><br />
+        “It took us over two years to reach 10,000 cumulative cardholders, and now we are adding that many in a month,” he added.
+        <br /><br />
+        The startup has also expanded beyond a corporate card offering into other services, with the goal of helping companies generally automate their finances. For example, Ramp last year made its first acquisition when picking up negotiation-as-a-service startup Buyer with the goal of helping its customers save money on SaaS contracts. Last October, it began offering integrated automated bill payments for all its customers, and earlier this year it expanded into the travel segment.
+        <br /><br />
+        Earlier this month, Ramp also announced a partnership with Amazon for Business, in which customers can connect their Amazon Business account to Ramp and then anytime an employee uses one of its cards to make a purchase, Ramp automatically pulls the receipt.
+        <br /><br />
+        “It will provide full itemized-level detail, so if a customer wants to go and attach or move certain line items to different parts of their general ledger, they can do it,” Glyman said. It’s free for the customer. Several thousand of its customers are using it regularly.
+        <br /><br />
+        Over the past year, the company has quadrupled its workforce to 275 and is in the process of opening a new office in Miami, where co-founder and CTO Karim Atiyeh recently relocated.
+        <br /><br />
+        Notably, Ramp is college friends Glyman and Atiyeh’s second venture in the spend management industry following the sale of online price tracker Paribus to Capital One in 2016.
+        <br /><br />
+        With its new capital, Ramp plans to scope out more M&A opportunities. It also plans to continue to boost its headcount to “support new initiatives” both in investing in its software and going into new verticals.
+        <br /><br />
+        “We’re leaning heavily into full automation of receipts, expenses and all processes related to running a business,” Glyman told TechCrunch. “We’re trying to make the expense report hands-free and generally get deeper into financing for businesses.”
+        <br /><br />
+        Ramp’s biggest source of revenue is interchange fees from card-based payments. Bill payments marks its fastest growth in terms of volume, which doubled every month in 2021, Glyman said.
+        <br /><br />
+        “We’re not generating revenue through that today, but it speaks to Ramp growing into a full-fledged financing platform,” he added.
+        <br /><br />
+        Over the past two years, Ramp claims to have delivered more than $135 million in savings for its customers and that its software automated over 3.5 million hours of work for businesses, saying it’s helping companies close their books “in eight hours instead of the industry median of eight days.”
+        <br /><br />
+        “We are here to help businesses run more lean and efficiently,” Glyman told TechCrunch. “So our strategy internally is to push the value our customers are getting. If we do that first, continued capture for Ramp as a business will follow.”
+        <br /><br />
+        Growing competitive landscape
+        <br /><br />
+        The number of startups out there doing different aspects of what Ramp does is growing rapidly. There’s Brex, which in January announced a $300 million raise at a $12.3 billion valuation. And also Airbase, which recently landed a strategic investment from American Express and has hinged its future on making money off its software rather than on interchange fees. CEO Thejo Kote recently told me that he sees software as a “higher quality, more durable” form of revenue. Meanwhile, TripActions, which first focused on travel, continues to expand into general spend management. Newer startups are emerging as well. Glean AI came out of stealth recently to offer “accounts payables with a brain.” But many agree it’s not a winner-takes-all space, considering that the number of companies needing spend management offerings is also growing.
+        <br /><br />
+        To Glyman, the advantage of Ramp for finance teams is that it has rules automations that are built for a variety of functions — from card reimbursements expense management into bill payments and more recently, traveling.
+        <br /><br />
+        “It’s just been a huge convenience factor for customers,” he said. “They are not having to update or maintain multiple systems, and our automation extends across multiple forms of payment.”
+        <br /><br />
+        Founders Fund’s Rabois acknowledges that there are several companies tackling point solutions for finance organizations such as corporate card issuance or accounts payable optimization.
+        <br /><br />
+        “Ramp is unique in its vision to save teams time and money by building the future of the end-to-end CFO suite,” he said.
+        <br /><br />
+        Meanwhile, Ramp continues to invest in other startups. TechCrunch reported on its backing Pluto, whose self-proclaimed mission statement is that it is “building Ramp for the Middle East. Ramp also has put money in Indian fintech Karbon as well as “a few others that have not been publicly disclosed quite yet.”
+        <br /><br />
+        “We only back companies where we see a strategic opportunity over time,” Glyman said.
+    </div>
+</body>
+<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+<script>
+    function button_click(clicked_id) {
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById(clicked_id);
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        var modal_text = document.getElementById(clicked_id + "_div").innerHTML;
+        document.getElementById("modal_text").innerHTML = modal_text;
+
+        // When the user clicks on the button, open the modal
+        modal.style.display = "block";
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+</script>
+</html>

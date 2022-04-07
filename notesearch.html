@@ -1,0 +1,354 @@
+﻿<!--
+DECLARE @idd varchar(Max)='Consumer Software';
+DROP TABLE IF EXISTS tmpTopVC
+
+CREATE TABLE tmpTopVC
+(
+    col1 VARCHAR(MAX),
+    id VARCHAR(MAX),
+    first_name VARCHAR(MAX),
+    last_name VARCHAR(MAX),
+    profile_image_url VARCHAR(MAX),
+    leadnumber VARCHAR(MAX),
+    orgidstring VARCHAR(MAX),
+    uuid VARCHAR(MAX),
+    [name] VARCHAR(MAX),
+    job_title VARCHAR(MAX),
+    org_uuid VARCHAR(MAX),
+    willingness_to_share_insight VARCHAR(MAX),
+    quality_of_insight VARCHAR(MAX)
+ )
+ insert into tmpTopVC
+select @idd as col1, id, first_name, last_name, profile_image_url, leadnumber, orgidstring, uuid, Name, job_Title, org_uuid, willingness_to_share_insight, quality_of_insight from (
+select id, first_name, last_name, profile_image_url, Name, uuid, job_title, org_uuid, willingness_to_share_insight, quality_of_insight from (
+select b.*, a.willingness_to_share_insight, a.quality_of_insight from
+(select person_id, avg(IIF(willingness_to_share_insight='-1',null,willingness_to_share_insight)) as willingness_to_share_insight, avg(IIF(quality_of_insight='-1',null,quality_of_insight)) as quality_of_insight from crm2_person_rating group by person_id) a
+RIGHT JOIN
+(select id, first_name, last_name, profile_image_url, uuid from crm2_person) b
+ON a.person_id=b.id) aaTable
+LEFT JOIN
+(select a.Name, b.person_uuid, b.job_title, b.org_uuid from
+       (select * from crm2_organization) a
+       RIGHT JOIN
+       (select * from (select *, row_number() over (partition by person_uuid order by is_current desc, job_end desc, job_start asc) as rn from crm2_job where person_uuid in (select person_uuid from crm2_job where job_type='board_member' and org_uuid in (select uuid_organization from crm2_category where category=@idd)
+union all
+select uuid as person_uuid from crm2_partnerinvestment where org_uuid in (select uuid_organization from crm2_category where category=@idd)) and job_type = 'employee') a where rn=1) b
+       ON a.uuid = b.org_uuid) bbTable
+       ON aaTable.uuid=bbTable.person_uuid) aRicky
+       RIGHT JOIN
+(select person_uuid, SUM(lead) as leadnumber, STRING_AGG(CONCAT([Name],''),', ') WITHIN GROUP (ORDER BY lead desc) as orgidstring from (
+select aTable.name, aTable.id as org_id, bTable.* from
+(select uuid, name, id from crm2_organization where uuid in (select org_uuid from crm2_csv4_jobs where job_type='board_member' and org_uuid in (select uuid_organization from crm2_category where category=@idd)
+union all
+select replace(company_uuid,'-','') as org_uuid from store_CRM2_CompanyUUID_FundingRounds where replace(company_uuid,'-','') in (select uuid_organization from crm2_category where category=@idd))) aTable
+RIGHT JOIN
+(select distinct replace(person_uuid,'-','') as person_uuid, replace(org_uuid,'-','') as org_uuid, CAST('3' AS FLOAT) as lead from crm2_csv4_jobs where job_type='board_member' and replace(org_uuid,'-','') in (select uuid_organization from crm2_category where category=@idd)
+union all
+select distinct replace(partner_uuid,'-','') as person_uuid, replace(company_uuid,'-','') as org_uuid, IIF(SUM(cast(IIF(lead='t',2,1) as float))>2,2,SUM(cast(IIF(lead='t',2,1) as float))) AS lead from store_CRM2_CompanyUUID_FundingRounds where replace(company_uuid,'-','') NOT IN (select replace(org_uuid,'-','') from crm2_csv4_jobs where job_type='board_member' and replace(org_uuid,'-','') in (select uuid_organization from crm2_category where category=@idd)) AND partner_uuid is not null AND replace(company_uuid,'-','') in (select uuid_organization from crm2_category where category=@idd) group by partner_uuid, company_uuid) bTable
+on aTable.uuid=bTable.org_uuid) zTable GROUP BY person_uuid) bRicky
+ON aRicky.uuid=bRicky.person_uuid
+
+select (
+select col1, CONCAT(first_name,' ',last_name) as name, uuid, profile_image_url, orgidstring, b.co_name_val, a.org_uuid, b.job_title as Person_Title, b.id2 from (
+select top 150 * from tmpTopVC order by cast(leadnumber as float) desc) a
+LEFT JOIN (
+select a.[name] as co_name_val, a.id as id2, b.* from (
+select * from crm2_organization where uuid in (select org_uuid from (select *, ROW_NUMBER() OVER (PARTITION BY person_uuid order by is_current desc, job_start desc) as rn from crm2_job where person_uuid in (select uuid from tmpTopVC)) a where rn=1)) a
+RIGHT JOIN (
+select * from (select *, ROW_NUMBER() OVER (PARTITION BY person_uuid order by is_current desc, job_start desc) as rn from crm2_job where person_uuid in (select uuid from tmpTopVC)) a where rn=1) b
+ON a.uuid=b.org_uuid) b
+on a.uuid=b.person_uuid order by cast(leadnumber as float) desc, last_name
+for json path)-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="Responsive layout with advanced sidebar menu built with SCSS and vanilla Javascript" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="all.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #eee;
+            margin-bottom: 30px;
+        }
+
+
+        #charactersList {
+            padding-inline-start: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-gap: 15px;
+        }
+
+        .character {
+            list-style-type: none;
+            background-color: #eaeaea;
+            border-radius: 3px;
+            display: grid;
+            text-align: left;
+        }
+
+            .character > h2 {
+                grid-area: name;
+                margin-bottom: 0px;
+                text-wrap: none;
+                font-size: 14px;
+            }
+
+        #searchBar {
+            width: 100%;
+            height: 45px;
+            border-radius: 3px;
+            border: 1px solid #eaeaea;
+            padding: 5px 10px;
+            font-size: 18px;
+        }
+
+        #searchWrapper {
+            position: relative;
+        }
+
+            #searchWrapper::after {
+                content: '🔍';
+                position: absolute;
+                top: 7px;
+                right: 15px;
+            }
+    </style>
+    <title>Experts By Topic</title>
+</head>
+<body onload="afterPageLoad()">
+    <div class="layout has-sidebar fixed-sidebar fixed-header">
+        <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+            <div class="image-wrapper">
+
+            </div>
+            <div class="sidebar-layout">
+                <div class="sidebar-header">
+                    <span style="
+                text-transform: uppercase;
+                font-size: 15px;
+                letter-spacing: 3px;
+                font-weight: bold;
+              ">A.I. Capital</span>
+                </div>
+                <div class="sidebar-content">
+                    <nav class="menu open-current-submenu">
+                        <ul>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F3C6
+                                    </span>
+                                    <span class="menu-title">Team Pulse</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="teamfeed.html">
+                                                <span class="menu-title">Activity Newsfeed</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="calendar.html">
+                                                <span class="menu-title">Activity by Company</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#xFF04
+                                    </span>
+                                    <span class="menu-title">Portfolio</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="newsfeed.html">
+                                                <span class="menu-title">Portfolio Newsfeed</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="smarttasks.html">
+                                                <span class="menu-title">Smart Tasks</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F91D
+                                    </span>
+                                    <span class="menu-title">Relationships</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="notesearch.html">
+                                                <span class="menu-title">Experts by Topic</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="smartnetwork.html">
+                                                <span class="menu-title">Smart Network</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </aside>
+        <div id="overlay" class="overlay"></div>
+        <div class="layout">
+            <header class="header">
+                <a id="btn-collapse" href="#">
+                    &#x2261
+                </a>
+                <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
+                    &#x2261
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Experts By Topic
+            </header>
+            <main class="content">
+                <div class="container">
+                    <div id="searchWrapper">
+                        <input type="text"
+                               name="searchBar"
+                               id="searchBar"
+                               placeholder="search for an expert by topic" />
+                    </div>
+                    <ul id="charactersList"></ul>
+                </div>
+                <script src="app.js"></script>
+            </main>
+            <div class="overlay"></div>
+        </div>
+    </div>
+
+</body>
+<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script>
+    const charactersList = document.getElementById('charactersList');
+    const searchBar = document.getElementById('searchBar');
+    let hpCharacters = [];
+
+    searchBar.addEventListener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase();
+
+        const filteredCharacters = hpCharacters.filter((character) => {
+            return (
+                character.col1.toLowerCase().includes(searchString)
+            );
+        });
+        displayCharacters(filteredCharacters);
+    });
+
+    const loadCharacters = async () => {
+        try {
+            const res = await fetch('topvc.json');
+            hpCharacters = await res.json();
+            console.log(hpCharacters);
+            displayCharacters(hpCharacters);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const displayCharacters = (characters) => {
+        const htmlString = characters
+            .map((character) => {
+                return `
+            <li class="character">
+                <table width='100%'>
+                    <tr>
+                        <td valign='top' width='100px'>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img style='padding-top:5px;padding-left:5px' height='80px' width='80px' src="${character.profile_image_url}"></img>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td style='padding-top:5px' valign='top'>
+                 <table>
+                <tr><td><span><a target='_blank' href='https://www.crunchbase.com/person/${character.uuid}'>${character.name}</a></span></td></tr>
+                <tr><td>${character.Person_Title}</td></tr>
+                <tr><td><a target='_blank' href='https://www.crunchbase.com/organization/${character.org_uuid}'>${character.co_name_val}</a></td></tr>
+                <tr><td style='font-size:12px'>&#x2705; ${character.orgidstring}</td></tr>
+                </table>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        `;
+            })
+            .join('');
+        charactersList.innerHTML = htmlString;
+    };
+
+    loadCharacters();
+
+   
+    
+</script>
+<script>
+    $(function () {
+        var availableTags = [
+            "Analytics",
+            "Big Data",
+            "Cloud Computing",
+            "Consumer Software",
+            "Developer Tools",
+            "E-Commerce",
+            "EdTech",
+            "Enterprise Software",
+            "Information Technology",
+            "Lead Generation",
+            "Marketing",
+            "Mobile",
+            "SaaS",
+            "Software",
+            "Task Management"
+        ];
+        $("#searchBar").autocomplete({
+            source: availableTags
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const topic = urlParams.get('topic');
+        console.log("topic is:"+topic)
+        document.getElementById("searchBar").value = topic;
+    }) 
+</script>
+</html>

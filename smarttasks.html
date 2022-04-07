@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="Responsive layout with advanced sidebar menu built with SCSS and vanilla Javascript" />
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="all.css">
+    <style>
+        body,
+        html {
+            font-family: arial, sans-serif;
+            font-size: 11pt;
+        }
+
+        #visualization {
+            box-sizing: border-box;
+            width: 100%;
+            height: 300px;
+    </style>
+    <title>Search Experts By Topic</title>
+</head>
+<body>
+    <div class="layout has-sidebar fixed-sidebar fixed-header">
+        <aside id="sidebar" class="sidebar break-point-lg has-bg-image">
+            <div class="image-wrapper">
+
+            </div>
+            <div class="sidebar-layout">
+                <div class="sidebar-header">
+                    <span style="
+                text-transform: uppercase;
+                font-size: 15px;
+                letter-spacing: 3px;
+                font-weight: bold;
+              ">XYZ Capital</span>
+                </div>
+                <div class="sidebar-content">
+                    <nav class="menu open-current-submenu">
+                        <ul>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F9FE
+                                    </span>
+                                    <span class="menu-title">Team Activity</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="newsfeed.html">
+                                                <span class="menu-title">Team Feed</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#">
+                                                <span class="menu-title">Focus List</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F9FE
+                                    </span>
+                                    <span class="menu-title">Portfolio</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="newsfeed.html">
+                                                <span class="menu-title">News Feed</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#">
+                                                <span class="menu-title">Smart Tasks</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href="#">
+                                    <span class="menu-icon">
+                                        &#x1F91D
+                                    </span>
+                                    <span class="menu-title">Relationships</span>
+                                </a>
+                                <div class="sub-menu-list">
+                                    <ul>
+                                        <li class="menu-item">
+                                            <a href="#">
+                                                <span class="menu-title">Experts by Topic</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#">
+                                                <span class="menu-title">Smart Network</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </aside>
+        <div id="overlay" class="overlay"></div>
+        <div class="layout">
+            <header class="header">
+                <a id="btn-collapse" href="#">
+                    &#x2261
+                </a>
+                <a id="btn-toggle" href="#" class="sidebar-toggler break-point-lg">
+                    &#x2261
+                </a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Experts By Topic
+            </header>
+            <main class="content">
+                <div id="visualization"></div>
+            </main>
+            <div class="overlay"></div>
+        </div>
+    </div>
+
+</body>
+<script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<!--https://visjs.github.io/vis-timeline/docs/timeline/-->
+<script src="vis-timeline-graph2d.min.js"></script>
+<link href="vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+
+<script>
+    var sdt = [{
+        "group3": [
+            {
+                id: 1243,
+                treeLevel: 3,
+                content: "Stuart Mcleod"
+            }, {
+                id: 1525,
+                treeLevel: 3,
+                content: "John Freeman"
+            }, {
+                id: 1624,
+                treeLevel: 3,
+                content: "Tim Donohoue"
+            }, {
+                id: 2243,
+                treeLevel: 3,
+                content: "Joe Onofrio (Five Elms)"
+            }, {
+                id: 2525,
+                treeLevel: 3,
+                content: "Bill Bartee (Blackbird VC)"
+            }, {
+                id: 2624,
+                treeLevel: 3,
+                content: "Holly Dungan (CIBC)"
+            }, {
+                id: 3243,
+                treeLevel: 3,
+                content: "Customer"
+            }, {
+                id: 4243,
+                treeLevel: 3,
+                content: "Cliff Obrecht"
+            }, {
+                id: 4244,
+                treeLevel: 3,
+                content: "Damien Singh"
+            }],
+
+        "groups": [{
+            id: 10,
+            title: "Karbon",
+            content: "Karbon",
+            treeLevel: 1,
+            nestedGroups: [1, 2, 3],
+            showNested: false
+        }, {
+            id: 1,
+            content: "Employees",
+            treeLevel: 2,
+                nestedGroups: [1243, 1525, 1624],
+                showNested: false
+        }, {
+            id: 2,
+            treeLevel: 2,
+            content: "Investors",
+                nestedGroups: [2243, 2525, 2624],
+                showNested: false
+        }, {
+            id: 3,
+            treeLevel: 2,
+            content: "Diligence",
+                nestedGroups: [3243],
+                showNested: false
+        }, {
+            id: 100,
+            title: "Canva",
+            content: "Canva",
+            treeLevel: 1,
+                nestedGroups: [101],
+                showNested: false,
+            "text": "Totals",
+            "EditionId": 0,
+            "groupId": 0
+        }, {
+            id: 101,
+            treeLevel: 2,
+            content: "Employees",
+                nestedGroups: [4243, 4244],
+                showNested: false
+        }],
+    }];
+
+    function randomIntFromInterval(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    //let startDay = moment().startOf("month").startOf("week").isoWeekday(1);
+    let startDay = moment().subtract({ days: 0, months: 12 });
+
+    // DOM element where the Timeline will be attached
+    var container = document.getElementById('visualization');
+
+    // Create a DataSet (allows two way data-binding)
+    //var items = new vis.DataSet(data.result);
+
+    var now = moment().minutes(0).seconds(0).milliseconds(0);
+    var itemCount = 60;
+
+    // create a data set with groups
+    var groups = new vis.DataSet();
+
+    groups.add(sdt[0].groups);
+    groups.add(sdt[0].group3);
+
+    // create a dataset with items
+    var items = new vis.DataSet();
+    var groupIds = groups.getIds();
+    var types = ['box', 'point', 'range', 'background']
+    var items = new vis.DataSet([
+        { id: 1, group: 10, content: '<table><tr><td>Meeting with Stuart Mcleod2</td></tr></table>', start: '2021-06-010', type: 'point' },
+        { id: 2, group: 10, content: '<table><tr><td>Call with Joe Onofrio</td></tr></table>', start: '2021-06-07', type: 'point' },
+        { id: 3, group: 1, content: 'item 2', start: '2022-04-21', type: 'point' },
+        { id: 4, group: 2, content: 'item 3', start: '2022-04-22', type: 'point' }
+    ]);
+
+    // specify options
+    let options = {
+        start: startDay.toDate(),
+        //end: new Date(1000 * 60 * 60 * 24 + (new Date()).valueOf()),
+        
+        horizontalScroll: true,
+        zoomKey: 'ctrlKey',
+        orientation: 'both',
+        zoomMin: 1000 * 60 * 60 * 240
+    };
+
+    // create a Timeline
+    var timeline = new vis.Timeline(container, items, groups, options);
+</script>
+</html>
